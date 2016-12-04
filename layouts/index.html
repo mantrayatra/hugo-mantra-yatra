@@ -1,0 +1,93 @@
+{{ define "main" }}
+{{ partial "nav_main.html" . }}
+<div class="jumbotron transparent text-center no-parallax" style="background: url(/img/kailash-manasarovar/banner.jpg); height:100vh;">
+    <div style="position: relative; top: 50%; transform: translateY(-50%);">
+        <div class="container">
+            <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
+            <a class="btn btn-warning" role="button" href="#upcomingYatras">Lets begin</a>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" style="margin-bottom: 20px">
+    <div class="row">
+      <section class="container" id="yatras">
+          <h3 class="text-center sr-only">Yatras</h3>
+          <section class="row" id="upcomingYatras">
+              <h3 class="col-xs-12">Upcoming</h3>
+              {{ range .Site.Taxonomies.tags.upcoming }}
+              <div class="col-xs-12 col-sm-4">
+                  <div style="padding:2px;">
+                      <a href="{{ .Page.Permalink }}" title="" style="color: inherit; text-decoration: none">
+                          <img src="{{ .Page.Params.image }}" alt="" class="img-responsive" />
+                          <h4>{{ .Page.Title | humanize }}<small> {{ .Page.Params.daterange }}</small></h4>
+                          <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Page.Params.priceunit }} {{ .Page.Params.price }}</span>
+                      </a>
+                  </div>
+              </div>
+              {{ end }}
+          </section>
+          {{ range $key, $value := .Site.Taxonomies.categories }}
+          <section class="row">
+              <h3 class="col-xs-12">{{ $key | humanize }}</h3>
+              {{ range $value.Pages }}
+              <div class="col-xs-12 col-sm-4">
+                  <div style="padding:2px;">
+                      <a href="{{ .Permalink }}" title="" style="color: inherit; text-decoration: none">
+                          <img src="{{ .Params.image }}" alt="" class="img-responsive" />
+                          <h4>{{ .Title | humanize }}<small> {{ .Params.daterange }}</small></h4>
+                          <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Params.priceunit }} {{ .Params.price }}</span>
+                      </a>
+                  </div>
+              </div>
+              {{ end }}
+          </section>
+          {{ end }}
+      </section>
+    </div>
+    <section class="row background-gray-lightest" id="whyUs">
+      <h2 class="text-center">Why {{ .Site.Title }} ?</h2>
+      <div class="col-xs-12 col-md-6 col-md-offset-3">
+        <p>Before organising any tour, we personally visit all the places and ensure everything is in place.
+           We take small groups of people only to give our Yatris personalised attention and quality service.
+           Senior citizens are taken care of well by us.
+        </p>
+        <p>
+          We always provide comfortable Hotels and Twin Sharing
+          Tour Organiser travels with the group and explains the significance of each and place
+          We take utmost care to give you the best food.
+        </p>
+        <p>So far we have more than 400 Satisfied and Happy Yatris. Our
+          Three Pillars of a tour : Accommodation / Transport / Food – We choose the Best</p>
+        </p>
+      </div>
+    </section>
+    <section class="row" id="testimonials">
+        <h2 class="text-center"> What people say about us? </h2>
+        <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
+            <div class="owl-carousel" id="testimonial-carousel">
+                {{ range .Site.Data.testimonials }}
+                <div>
+                    <p>{{ .text }}</p>
+                    <!--      <img class="" alt="" src="{{ .avatar | absURL }}"> -->
+                    <h4>{{ .name }}</h4>
+                    <p>{{ .position }}</p>
+                </div>
+                {{ end }}
+            </div>
+        </div>
+    </section>
+    <section class="row background-gray-lightest" id="contact">
+        <h2 class="text-center">Let's Get In Touch!</h2>
+        <div class="col-xs-12 text-center">
+          <a href="tel:+919840188430" role="button" class="btn btn-default" style="border-width: 0px; background-color: transparent;">
+               <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+               <p>Call us</p>
+          </a>
+          <a href="mailto:mantrayatra@gmail.com" role="button" class="btn btn-default" style="border-width: 0px; background-color: transparent;">
+               <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
+               <p>Email us</p>
+          </a>
+        </div>
+    </section>
+</div>
+{{ end }}

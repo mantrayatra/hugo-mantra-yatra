@@ -1,0 +1,25 @@
+{{ define "main" }}
+{{ partial "nav_pages.html" . }}
+{{ $pageTitle := .Title }}
+{{ $dateRange := .Params.daterange }}
+{{ with .Params.image }}
+<div class="jumbotron transparent text-center no-parallax" style="background: url({{ . }}); height:100%; width: 100%;">
+  <div style="position: relative; top: 50%; transform: translateY(-50%);">
+  <div class="container">
+    <h1 class="white-text startchange">{{ $pageTitle | humanize }}</h1>
+    <h3 class="white-text startchange">{{ $dateRange }}</h3>
+    <a class="btn btn-warning" role="button" href="#moreInfo">Know more</a>
+  </div>
+  </div>
+</div>
+{{ end }}
+
+<div class="container-fluid" id="moreInfo" style="margin-bottom:40px">
+  <div class="row">
+    <div class="col-xs-12 col-xs-offset-0 col-md-8 col-md-offset-2">
+      {{ .Content }}
+    </div>
+  <div>
+</div>
+
+{{ end }}
