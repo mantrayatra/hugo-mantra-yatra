@@ -13,7 +13,7 @@
       <section class="container" id="yatras">
           <h3 class="text-center sr-only">Yatras</h3>
           <section class="row" id="upcomingYatras">
-              <h3 class="col-xs-12" style="padding-top:1em;">Upcoming</h3>
+              <h3 class="col-xs-12">Upcoming</h3>
               {{ range .Site.Taxonomies.tags.upcoming }}
               <div class="col-xs-12 col-sm-4">
                   <div style="padding:2px;">
@@ -28,7 +28,7 @@
           </section>
           {{ range $key, $value := .Site.Taxonomies.categories }}
           <section class="row">
-              <h3 class="col-xs-12" style="padding-top:1em;">{{ $key | humanize }}</h3>
+              <h3 class="col-xs-12">{{ $key | humanize }}</h3>
               {{ range $value.Pages }}
               <div class="col-xs-12 col-sm-4">
                   <div style="padding:2px;">
