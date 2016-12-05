@@ -1,6 +1,6 @@
 {{ define "main" }}
 {{ partial "nav_main.html" . }}
-<div class="jumbotron transparent text-center no-parallax" style="background: url(/img/kailash-manasarovar/banner.jpg); height:100vh;">
+<div class="jumbotron transparent text-center no-parallax" style="background: url({{ .Site.Params.bannerImgUrl }}); height:100vh;">
     <div style="position: relative; top: 50%; transform: translateY(-50%);">
         <div class="container">
             <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
@@ -18,7 +18,7 @@
               <div class="col-xs-12 col-sm-4">
                   <div style="padding:2px;">
                       <a href="{{ .Page.Permalink }}" title="" style="color: inherit; text-decoration: none">
-                          <img src="{{ .Page.Params.image }}" alt="" class="img-responsive" />
+                          <img src="{{ .Page.Params.thumbnail }}" alt="" class="img-responsive" />
                           <h4>{{ .Page.Title | humanize }}<small> {{ .Page.Params.daterange }}</small></h4>
                           <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Page.Params.priceunit }} {{ .Page.Params.price }}</span>
                       </a>
@@ -33,7 +33,7 @@
               <div class="col-xs-12 col-sm-4">
                   <div style="padding:2px;">
                       <a href="{{ .Permalink }}" title="" style="color: inherit; text-decoration: none">
-                          <img src="{{ .Params.image }}" alt="" class="img-responsive" />
+                          <img src="{{ .Params.thumbnail }}" alt="" class="img-responsive" />
                           <h4>{{ .Title | humanize }}<small> {{ .Params.daterange }}</small></h4>
                           <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Params.priceunit }} {{ .Params.price }}</span>
                       </a>

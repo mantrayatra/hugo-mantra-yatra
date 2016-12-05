@@ -1,5 +1,6 @@
 +++
 image = ""
+thumbnail = ""
 summary = ""
 price = ""
 priceunit = ""
