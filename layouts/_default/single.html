@@ -4,6 +4,7 @@
 {{ $dateRange := .Params.daterange }}
 {{ with .Params.image }}
 <div class="jumbotron transparent text-center no-parallax" style="background: url({{ . }}); height:100%; width: 100%;">
+  <img src="{{ . }}" style="display:none" alt="" />
   <div style="position: relative; top: 50%; transform: translateY(-50%);">
   <div class="container">
     <h1 class="white-text startchange">{{ $pageTitle | humanize }}</h1>
