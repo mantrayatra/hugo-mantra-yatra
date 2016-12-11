@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ partial "nav_main.html" . }}
 <div class="jumbotron transparent text-center no-parallax" style="background: url({{ .Site.Params.bannerImgUrl }}); height:100vh;">
+    <img src="{{ .Site.Params.bannerImgUrl }}" style="display:none" alt="" />
     <div style="position: relative; top: 50%; transform: translateY(-50%);">
         <div class="container">
             <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
