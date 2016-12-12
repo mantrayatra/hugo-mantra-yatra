@@ -3,9 +3,9 @@
 
 name = "Hugo Mantra Yatra"
 license = "MIT"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = "http://siteforthistheme.com/"
+licenselink = "https://raw.githubusercontent.com/mantrayatra/hugo-mantra-yatra/master/LICENSE.md"
+description = "Theme used for https://mantrayatra.com"
+homepage = "https://github.com/mantrayatra/hugo-mantra-yatra/"
 tags = ["", ""]
 features = ["", ""]
 min_version = 0.17
