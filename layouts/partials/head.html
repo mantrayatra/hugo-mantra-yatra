@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="all,follow">
 <meta name="googlebot" content="index,follow,snippet,archive">
+{{ with .Site.Params.favIcon48by48Url }}<link rel="shortcut icon" href="{{ . }}">{{ end }}
+{{ with .Site.Params.appleTouchIcon180by180Url }}<link rel="apple-touch-icon" sizes="180x180" href="{{ . }}">{{ end }}
 <link rel="stylesheet" href="{{ "css/font-awesome-4.7.0/css/font-awesome.min.css" | absURL }}">
 <link rel="stylesheet" href="{{ "css/bootstrap.min.css" | absURL }}">
 <link rel="stylesheet" href="{{ "css/owl.carousel.css" | absURL }}">
