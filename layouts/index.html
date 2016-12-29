@@ -5,6 +5,18 @@
     <div style="position: relative; top: 50%; transform: translateY(-50%);">
         <div class="container">
             <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
+            <p class="white-text">
+              <a href="#upcomingYatras" title="" style="color: inherit; text-decoration: none">
+                {{ $noOfYatrasToBeHighlighted := 4}}
+                {{ $arr := first $noOfYatrasToBeHighlighted (where .Data.Pages "Section" "yatra") }}
+                {{ range $index, $element := $arr }}
+                    {{ $element.Title | humanize }}
+                    {{ if lt ( add $index 1 ) $noOfYatrasToBeHighlighted }}
+                       |
+                    {{ end }}
+                {{ end }}
+              </a>
+            </p>
             <a class="btn btn-warning" role="button" href="#upcomingYatras">Lets begin</a>
         </div>
     </div>
@@ -15,22 +27,7 @@
           <h3 class="text-center sr-only">Yatras</h3>
           <section class="row" id="upcomingYatras">
               <h3 class="col-xs-12">Upcoming</h3>
-              {{ range .Site.Taxonomies.tags.upcoming }}
-              <div class="col-xs-12 col-sm-4">
-                  <div style="padding:2px;">
-                      <a href="{{ .Page.Permalink }}" title="" style="color: inherit; text-decoration: none">
-                          <img src="{{ .Page.Params.thumbnail }}" alt="" class="img-responsive" />
-                          <h4>{{ .Page.Title | humanize }}<small> {{ .Page.Params.daterange }}</small></h4>
-                          <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Page.Params.priceunit }} {{ .Page.Params.price }}</span>
-                      </a>
-                  </div>
-              </div>
-              {{ end }}
-          </section>
-          {{ range $key, $value := .Site.Taxonomies.categories }}
-          <section class="row">
-              <h3 class="col-xs-12">{{ $key | humanize }}</h3>
-              {{ range $value.Pages }}
+              {{ range (where .Data.Pages "Section" "yatra")  }}
               <div class="col-xs-12 col-sm-4">
                   <div style="padding:2px;">
                       <a href="{{ .Permalink }}" title="" style="color: inherit; text-decoration: none">
@@ -42,7 +39,6 @@
               </div>
               {{ end }}
           </section>
-          {{ end }}
       </section>
     </div>
     <section class="row background-gray-lightest" id="whyUs">
@@ -53,22 +49,22 @@
            Senior citizens are taken care of well by us.
         </p>
         <p>
-          We always provide comfortable Hotels and Twin Sharing
-          Tour Organiser travels with the group and explains the significance of each and place
+          We always provide comfortable Hotels and Twin Sharing rooms only.
+          Tour Organiser travels with the group and explains the Importance and History of each and Place
           We take utmost care to give you the best food.
         </p>
         <p>So far we have more than 400 Satisfied and Happy Yatris. Our
-          Three Pillars of a tour : Accommodation / Transport / Food – We choose the Best</p>
+          Three Pillars of a tour : Accommodation / Transport / Food – We always choose the Best</p>
         </p>
       </div>
     </section>
-    <section class="row" id="testimonials">
+    <section class="row" id="testimonials" style="background-color:#2f2f2f">
         <h2 class="text-center"> What people say about us? </h2>
         <div class="col-xs-12 col-md-6 col-md-offset-3 text-center">
             <div class="owl-carousel" id="testimonial-carousel">
                 {{ range .Site.Data.testimonials }}
-                <div>
-                    <p>{{ .text }}</p>
+                <div class="white-text">
+                    <p class="text-justify">{{ .text }}</p>
                     <!--      <img class="" alt="" src="{{ .avatar | absURL }}"> -->
                     <h4>{{ .name }}</h4>
                     <p>{{ .position }}</p>
@@ -79,15 +75,46 @@
     </section>
     <section class="row background-gray-lightest" id="contact">
         <h2 class="text-center">Let's Get In Touch!</h2>
-        <div class="col-xs-12 text-center">
-          <a href="tel:+919840188430" role="button" class="btn btn-default" style="border-width: 0px; background-color: transparent;">
-               <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
-               <p>Call us</p>
-          </a>
-          <a href="mailto:mantrayatra@gmail.com" role="button" class="btn btn-default" style="border-width: 0px; background-color: transparent;">
-               <i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i>
-               <p>Email us</p>
-          </a>
+        {{ with .Site.Params.email }}
+        <div class="col-xs-12 col-md-7 col-md-offset-1">
+          <form class="contact-form" method="post" action="https://formspree.io/{{ . }}">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" class="form-control" name="name" id="name" required="">
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="text" class="form-control" name="email" id="email" required="">
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" name="message" required=""></textarea>
+                    </div>
+                </div>
+                <div class="col-sm-12 text-center">
+                    <button type="submit" class="btn btn-warning"><i class="fa fa-envelope-o"></i> Send message</button>
+                </div>
+            </div>
+          </form>
+        </div>
+        {{ end }}
+        <div class="col-xs-12 col-md-4">
+          <address>
+            <strong>Mantra Yatra</strong><br>
+            2C - Ranga Nivas<br>
+            20 - Barnaby Road<br>
+            Chennai 600 010<br>
+            Kilpauk<br>
+            <abbr title="Mobile"><i class="fa fa-mobile" aria-hidden="true"></i></abbr> +919840188430 / +919840988430 <br/>
+            <abbr title="Landline"><i class="fa fa-phone" aria-hidden="true"></i></abbr> 044-42612114 <br/>
+            <abbr title="Email"><i class="fa fa-envelope-o" aria-hidden="true"></i></abbr> mantrayatra@gmail.com <br/>
+          </address>
         </div>
     </section>
 </div>
