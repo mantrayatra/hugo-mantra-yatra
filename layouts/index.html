@@ -7,10 +7,10 @@
             <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
             <p class="white-text">
               <a href="#upcomingYatras" title="" style="color: inherit; text-decoration: none">
-                {{ $noOfYatrasToBeHighlighted := 4}}
+                {{ $noOfYatrasToBeHighlighted := 5 }}
                 {{ $arr := first $noOfYatrasToBeHighlighted (where .Data.Pages "Section" "yatra") }}
                 {{ range $index, $element := $arr }}
-                    {{ $element.Title | humanize }}
+                    {{ $element.Title | title }}
                     {{ if lt ( add $index 1 ) $noOfYatrasToBeHighlighted }}
                        |
                     {{ end }}
@@ -32,8 +32,10 @@
                   <div style="padding:2px;">
                       <a href="{{ .Permalink }}" title="" style="color: inherit; text-decoration: none">
                           <img src="{{ .Params.thumbnail }}" alt="" class="img-responsive" />
-                          <h4>{{ .Title | humanize }}<small> {{ .Params.daterange }}</small></h4>
+                          <h4>{{ .Title | title }}<small> {{ .Params.daterange }}</small></h4>
+                          {{ if .Params.price }}
                           <span class="darkened-background white-text" style="position:relative; top: -80px; padding: 5px">{{ .Params.priceunit }} {{ .Params.price }}</span>
+                          {{ end }}
                       </a>
                   </div>
               </div>
@@ -111,7 +113,7 @@
             20 - Barnaby Road<br>
             Chennai 600 010<br>
             Kilpauk<br>
-            <abbr title="Mobile"><i class="fa fa-mobile" aria-hidden="true"></i></abbr> +919840188430 / +919840988430 <br/>
+            <abbr title="Mobile"><i class="fa fa-mobile" aria-hidden="true"></i></abbr> +91 98401 88430 / +91 98409 88430 <br/>
             <abbr title="Landline"><i class="fa fa-phone" aria-hidden="true"></i></abbr> 044-42612114 <br/>
             <abbr title="Email"><i class="fa fa-envelope-o" aria-hidden="true"></i></abbr> mantrayatra@gmail.com <br/>
           </address>
