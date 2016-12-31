@@ -1,9 +1,21 @@
 $(function(){
   carousels();
-  navbarScrollHandler();
+  navbar();
   smoothScroll($(".navbar").height());
-  navbarCollapseOnClick();
 });
+
+function navbar() {
+  navbarScrollHandler();
+  navbarCollapseOnClick();
+  navBarBlackOnClickOfHamburgerIcon();
+  navBarCollapseOnClickOutside();
+}
+
+function navBarCollapseOnClickOutside() {
+  $(":not(nav)").click(function() {
+    collapseNavBar();
+  });
+}
 
 function carousels() {
   $("#testimonial-carousel").owlCarousel({
@@ -20,21 +32,38 @@ function carousels() {
 }
 
 function navbarScrollHandler() {
+  $(document).scroll(function() {
+     navbarCollapseAndToggleState();
+  });
+}
+
+function navbarCollapseAndToggleState() {
+  collapseNavBar();
+  toggleStateOfNavBarBasedOnScrollPosition();
+}
+
+function toggleStateOfNavBarBasedOnScrollPosition() {
   var scroll_start = 0;
   var startchange = $('.startchange');
   var offset = startchange.offset();
-  if (startchange.length){
-    $(document).scroll(function() {
-       scroll_start = $(this).scrollTop();
-       if(scroll_start > offset.top) {
-           $('.navbar').addClass('navbar-inverse')
-                      .css('background-color', '#000000');
-        } else {
-          $('.navbar').removeClass('navbar-inverse')
-                      .css('background-color', 'transparent');
-        }
-    });
+  if (startchange.length) {
+     scroll_start = $(this).scrollTop();
+     if(scroll_start > offset.top) {
+        makeNavBarBlack();
+      } else {
+        makeNavBarTransparent();
+      }
   }
+}
+
+function makeNavBarBlack() {
+  $('.navbar').addClass('navbar-inverse')
+             .css('background-color', '#000000');
+}
+
+function makeNavBarTransparent() {
+  $('.navbar').removeClass('navbar-inverse')
+              .css('background-color', 'transparent');
 }
 
 function smoothScroll(navSize) {
@@ -53,11 +82,22 @@ function smoothScroll(navSize) {
 }
 
 function navbarCollapseOnClick() {
-   $(".navbar-nav li a").click(function (event) {
-     // check if window is small enough so dropdown is created
-     var toggle = $(".navbar-toggle").is(":visible");
-     if (toggle) {
-       $(".navbar-collapse").collapse('hide');
-     }
+   $(".navbar-nav li a").click(function() {
+     collapseNavBar();
    });
+}
+
+function navBarBlackOnClickOfHamburgerIcon() {
+  $(".navbar-toggle").click(function() {
+    console.log("im d9ing");
+    makeNavBarBlack();
+  });
+}
+
+function collapseNavBar() {
+  // check if window is small enough so dropdown is created
+  var toggle = $(".navbar-toggle").is(":visible");
+  if (toggle) {
+    $(".navbar-collapse").collapse('hide');
+  }
 }
