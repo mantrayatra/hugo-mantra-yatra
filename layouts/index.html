@@ -7,12 +7,14 @@
             <h1 class="white-text startchange">Lets go on the path of enlightenment</h1>
             <p class="white-text">
               <a href="#upcomingYatras" title="" style="color: inherit; text-decoration: none">
-                {{ $noOfYatrasToBeHighlighted := 5 }}
+                {{ $noOfYatrasToBeHighlighted := .Site.Params.noOfYatrasToInMainBanner }}
                 {{ $arr := first $noOfYatrasToBeHighlighted (where .Data.Pages "Section" "yatra") }}
                 {{ range $index, $element := $arr }}
                     {{ $element.Title | title }}
                     {{ if lt ( add $index 1 ) $noOfYatrasToBeHighlighted }}
                        |
+                    {{ else }}
+                       And Much More
                     {{ end }}
                 {{ end }}
               </a>
@@ -21,7 +23,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" style="margin-bottom: 20px">
+<div class="container-fluid">
     <div class="row">
       <section class="container" id="yatras">
           <h3 class="text-center sr-only">Yatras</h3>
