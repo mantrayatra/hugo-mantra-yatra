@@ -112,14 +112,7 @@
         {{ end }}
         <div class="col-xs-12 col-md-4">
           <address>
-            <strong>Mantra Yatra</strong><br>
-            2C - Ranga Nivas<br>
-            20 - Barnaby Road<br>
-            Chennai 600 010<br>
-            Kilpauk<br>
-            <abbr title="Mobile"><i class="fa fa-mobile" aria-hidden="true"></i></abbr> +91 98401 88430 / +91 98409 88430 <br/>
-            <abbr title="Landline"><i class="fa fa-phone" aria-hidden="true"></i></abbr> 044-42612114 <br/>
-            <abbr title="Email"><i class="fa fa-envelope-o" aria-hidden="true"></i></abbr> mantrayatra@gmail.com <br/>
+            {{ .Site.Params.address | safeHTML }}
           </address>
         </div>
     </section>
