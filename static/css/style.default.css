@@ -72,3 +72,31 @@
 .background-gray-lightest {
     background: #f7f7f7;
 }
+
+/* Selectors for rating stars */
+
+.rating-field {
+  width: 15em;
+}
+
+.rating-field input[type="radio"] {
+    display: none;
+}
+
+.rating-field label{
+  float: right;
+}
+
+.rating-field input[type="radio"] + label .unselected-star,
+.rating-field input[type="radio"] + label:hover .selected-star,
+.rating-field input[type="radio"] + label:hover ~ label .selected-star,
+.rating-field input[type="radio"]:checked ~ label .selected-star {
+    display: inline-block;
+}
+
+.rating-field input[type="radio"] + label .selected-star,
+.rating-field input[type="radio"] + label:hover .unselected-star,
+.rating-field input[type="radio"] + label:hover ~ label .unselected-star,
+.rating-field input[type="radio"]:checked ~ label .unselected-star {
+  display: none;
+}
