@@ -19,16 +19,10 @@ function navBarCollapseOnClickOutside() {
 
 function carousels() {
   $("#testimonial-carousel").owlCarousel({
-    autoPlay: true,
-    pagination: true,
-    singleItem: true
+    loop: true,
+    autoplay: true,
+    items: 1
   });
-
-  $("#hero-carousel").owlCarousel({
-    pagination: false,
-    singleItem: true
-  });
-
 }
 
 function navbarScrollHandler() {
