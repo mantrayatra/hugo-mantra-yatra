@@ -1,0 +1,8 @@
+{{ if .Site.Params.staticman.enabled }}
+  <div class="row">
+    {{ partial "staticman/form-reviews" . }}
+  </div>
+  <div class="row">
+    {{ partial "staticman/show-reviews" . }}
+  </div>
+{{end }}
