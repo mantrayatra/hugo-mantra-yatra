@@ -8,7 +8,7 @@ description = "Theme used for https://mantrayatra.com"
 homepage = "https://github.com/mantrayatra/hugo-mantra-yatra/"
 tags = ["", ""]
 features = ["", ""]
-min_version = 0.17
+min_version = 0.20.1
 
 [author]
   name = ""
