@@ -83,7 +83,7 @@
         </h2>
         {{ with .Site.Params.email }}
         <div class="col-xs-12 col-md-7 col-md-offset-1">
-          <form class="contact-form" method="post" action="https://formspree.io/{{ . }}">
+          <form class="contact-form ajaxform" method="post" action="https://formspree.io/{{ . }}">
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
@@ -103,6 +103,7 @@
                         <textarea id="message" class="form-control" name="message" required=""></textarea>
                     </div>
                 </div>
+                
                 <div class="col-sm-12 text-center">
                     <button type="submit" class="btn btn-warning"><i class="fa fa-envelope-o"></i> Send message</button>
                 </div>

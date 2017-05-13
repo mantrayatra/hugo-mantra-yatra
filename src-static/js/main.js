@@ -1,8 +1,45 @@
 $(function(){
   carousels();
   navbar();
-  smoothScroll($(".navbar").height());
+  smoothScroll($('.navbar').height());
+  tabs();
+  auth();
+  forms();
 });
+
+function forms() {
+  $(document).on('submit', 'form.ajaxform', function(e) {
+        $.ajax({
+            url     : $(this).attr('action'),
+            type    : $(this).attr('method'),
+            dataType: 'json',
+            data    : $(this).serialize(),
+            success : function( data ) {
+                e.currentTarget.reset();
+            },
+            error   : function( xhr, err ) {
+                alert('Error');
+            }
+        });
+        return false;
+    });
+}
+
+function tabs() {
+  $('#login-tabs a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show');
+  });
+}
+
+function auth() {
+  $('.review-form').click(function(e) {
+    var loggedInUser = firebase.auth().currentUser;
+    if(! loggedInUser ) {
+      location.href = "/login.html?next=" + location.pathname;
+    }
+  });
+}
 
 function navbar() {
   navbarScrollHandler();
@@ -12,13 +49,13 @@ function navbar() {
 }
 
 function navBarCollapseOnClickOutside() {
-  $(":not(nav)").click(function() {
+  $(':not(nav)').click(function() {
     collapseNavBar();
   });
 }
 
 function carousels() {
-  $("#testimonial-carousel").owlCarousel({
+  $('#testimonial-carousel').owlCarousel({
     loop: true,
     autoplay: true,
     items: 1
@@ -76,22 +113,22 @@ function smoothScroll(navSize) {
 }
 
 function navbarCollapseOnClick() {
-   $(".navbar-nav li a").click(function() {
+   $('.navbar-nav li a').click(function() {
      collapseNavBar();
    });
 }
 
 function navBarBlackOnClickOfHamburgerIcon() {
-  $(".navbar-toggle").click(function() {
-    console.log("im d9ing");
+  $('.navbar-toggle').click(function() {
+    console.log('im d9ing');
     makeNavBarBlack();
   });
 }
 
 function collapseNavBar() {
   // check if window is small enough so dropdown is created
-  var toggle = $(".navbar-toggle").is(":visible");
+  var toggle = $('.navbar-toggle').is(':visible');
   if (toggle) {
-    $(".navbar-collapse").collapse('hide');
+    $('.navbar-collapse').collapse('hide');
   }
 }

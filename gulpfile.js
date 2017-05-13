@@ -11,6 +11,7 @@ gulp.task('clean:static', function() {
 
 gulp.task('copy:js', ['clean:static'], function() {
   var files = [
+    'node_modules/firebase/firebase-app.js',
     'node_modules/firebase/firebase-auth.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
     'node_modules/jquery/dist/jquery.min.js',

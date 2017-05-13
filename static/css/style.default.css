@@ -1,3 +1,7 @@
+input {
+  border-radius: 0 !important;
+}
+
 .parallax {
 
     /* Create the parallax scrolling effect */
@@ -99,4 +103,19 @@
 .rating-field input[type="radio"] + label:hover ~ label .unselected-star,
 .rating-field input[type="radio"]:checked ~ label .unselected-star {
   display: none;
+}
+
+#login-tabs .active > a {
+  border-radius: 0;
+}
+
+#login-tabs .input-group input {
+  border-left: 0;
+  height: 44px;
+  padding-left: 15px;
+}
+
+#login-tabs .input-group-addon {
+  border-right: 0;
+  background-color: inherit;
 }
