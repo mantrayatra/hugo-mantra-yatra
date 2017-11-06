@@ -120,7 +120,6 @@ function navbarCollapseOnClick() {
 
 function navBarBlackOnClickOfHamburgerIcon() {
   $('.navbar-toggle').click(function() {
-    console.log('im d9ing');
     makeNavBarBlack();
   });
 }
