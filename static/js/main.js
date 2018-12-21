@@ -5,7 +5,14 @@ $(function(){
   tabs();
   auth();
   forms();
+  images();
 });
+
+function images() {
+  $("img")
+    .addClass("img-responsive")
+    .css("padding-bottom", "1em");
+}
 
 function forms() {
   $(document).on('submit', 'form.ajaxform', function(e) {
