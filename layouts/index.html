@@ -69,7 +69,9 @@
                 {{ range .Site.Data.testimonials }}
                 <div class="white-text">
                     <p class="text-justify">{{ .text }}</p>
-                    <img class="img-responsive img-circle" alt="{{ .name }}" src="{{ .avatar | absURL }}">
+                    {{ if .avatar }}
+                    <img class="img-circle" alt="{{ .name }}" src="{{ .avatar | absURL }}">
+                    {{ end }}
                     <h4>{{ .name }}</h4>
                     <p>{{ .position }}</p>
                 </div>
