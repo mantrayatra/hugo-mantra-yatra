@@ -121,6 +121,6 @@ input {
 }
 
 .testimonial-img {
-  width: 140px;
+  width: 140px !important;
   height: 140px;
 }
