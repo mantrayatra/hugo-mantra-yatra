@@ -65,7 +65,8 @@ function carousels() {
   $('#testimonial-carousel').owlCarousel({
     loop: true,
     autoplay: true,
-    items: 1
+    items: 1,
+    autoHeight:true
   });
 }
 
