@@ -70,7 +70,7 @@
                 <div class="white-text">
                     <p class="text-justify">{{ .text }}</p>
                     {{ if .avatar }}
-                    <img class="img-circle" alt="{{ .name }}" src="{{ .avatar | absURL }}">
+                    <img class="img-circle" style="width: 140px; height: 140px" alt="{{ .name }}" src="{{ .avatar | absURL }}">
                     {{ end }}
                     <h4>{{ .name }}</h4>
                     <p>{{ .position }}</p>
