@@ -9,7 +9,7 @@ $(function(){
 });
 
 function images() {
-  $("img")
+  $('img:not([class])')
     .addClass("img-responsive")
     .css("padding-bottom", "1em");
 }
