@@ -85,7 +85,7 @@
         </h2>
         {{ with .Site.Params.email }}
         <div class="col-xs-12 col-md-7 col-md-offset-1">
-          <form class="contact-form ajaxform" method="post" action="https://formspree.io/{{ . }}">
+          <form name="contacts" class="contact-form" method="post" data-netlify="true">
             <div class="row">
                 <div class="col-sm-12">
                     <div class="form-group">
